@@ -1,0 +1,20 @@
+# Python Environment
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# Session & Databases
+*.session
+*.session-journal
+infinity_plus_config.json
+
+# Resources & Downloads
+downloads/
+resources/global_fonts/*.ttf
+resources/global_fonts/*.otf
+
+# Logs
+*.log

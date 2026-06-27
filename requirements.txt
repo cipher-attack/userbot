@@ -1,0 +1,15 @@
+telethon
+yt-dlp
+google-genai
+edge-tts
+pillow
+motor
+dnspython
+python-dotenv
+aiohttp
+duckduckgo-search>=5.0.0
+google-generativeai
+deep-translator
+edge-tts
+pilmoji
+requests

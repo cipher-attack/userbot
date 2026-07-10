@@ -30,41 +30,54 @@
   <img src="./hero/image.png" width="50%" alt="Project Akasha Tools" />
 </p>
 
-## 𓏵 Overview
+### 𓏵 Overview
 
 **Project Akasha** is a userbot that actually understands context. instead of static replies, it reads the last few messages and writes something that fits — mimicking your tone and style.
 
 it also includes a TTS wrapper for Amharic/English voice notes, a two-stage music downloader that goes easy on RAM, and a set of group management tools. runs on local machines or cloud (Heroku/Railway).
 
-## ➜ Project Structure
+### ➜ Project Structure
 
 make sure your directory matches this layout. the bot uses relative paths for fonts and database files.
 
 ```text
 .
-├── .env
-├── config.py
-├── main.py
-├── requirements.txt
-├── docker-compose.yml
 ├── Dockerfile
-├── Procfile
-├── setup.sh
 ├── LICENSE
+├── README.md
+├── README_AM.md
+├── config.py
 ├── core
-│   └── database.py
-└── plugins
-    ├── admin_tools.py
-    ├── ai.py
-    ├── creative.py
-    ├── master_voice.py
-    ├── music.py
-    ├── security.py
-    ├── growth.py
-    └── system.py
+│   ├── database.py
+│   └── utils.py
+├── docker-compose.yml
+├── gitignore
+├── hero
+│   ├── akasha_hero.png
+│   └── image.png
+├── install.sh
+├── main.py
+├── plugins
+│   ├── admin_tools.py
+│   ├── ai.py
+│   ├── creative.py
+│   ├── growth.py
+│   ├── master_voice.py
+│   ├── music.py
+│   ├── security.py
+│   ├── system.py
+│   ├── whois.py
+│   └── whois_support
+│       └── shadow_tracker.py
+├── procfile
+├── release_backup
+│   └── userbot-1.0.0.zip
+└── requirements.txt
 ```
 
-## ⚙ Installation
+> **⚠ critical warning:** project akasha contains heavy scraping and growth modules and other (`.shadow`, `.addmembers`). misuse will result in an instant and permanent telegram ban. before running this bot, you **must** read the [anti-ban protocols](WARNING.md).
+
+### ⚙ Installation
 
 <details open>
 <summary><strong>1. Prerequisites</strong></summary>
@@ -267,6 +280,20 @@ session-based tool for moving users between groups. handles dedup, filtering, an
 > **note:** invites go out from your account. telegram restricts accounts that move too fast. use a secondary account you don't mind losing - not your main.
 
 ---
+
+### 8. behavior tracker (`plugins/whois.py`)
+deep profiling tool to monitor target activity across mutual groups. handles async scraping, rate limit bypassing, and cross chat aggregation without triggering api bans. 
+
+- **features:**
+  - timezone & sleep window estimation
+  - sentiment, language & typing habits (caps, lazy punctuation, emoji frequency)
+  - reply speed analayzer & chat thread depth tracking
+  - securely routes generated dumps to saved messages
+
+- **commands:**
+  - `.shadow @username` - dump profile data via username
+  - `.shadow <id>` - dump profile data via user id
+  - `.shadow` (in reply) - dump profile of the replied user
 
 ## 🔧 Troubleshooting
 
